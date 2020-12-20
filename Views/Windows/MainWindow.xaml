@@ -12,8 +12,44 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="34,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" Height="29" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
-
-    </Grid>
+    <DockPanel >
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File" >
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="1234"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="14" Value="30"/>
+            </StatusBarItem>
+        </StatusBar>
+        <TabControl >
+            <TabItem Header="Tab 1">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Column="0" Grid.Row="0"
+                               Fill="Blue" Stroke="Red"
+                               StrokeThickness="3"
+                               RadiusX="5" RadiusY="7" />
+                    <Ellipse Grid.Column="1" Grid.Row="0"
+                             Fill="Red" Stroke="Blue"
+                             StrokeThickness="3"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tab 2"></TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

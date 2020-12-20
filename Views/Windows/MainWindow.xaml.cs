@@ -8,5 +8,10 @@ namespace CoreTest
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click()
+        {
+
+        }
     }
 }
