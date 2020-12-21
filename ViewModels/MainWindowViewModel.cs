@@ -25,5 +25,18 @@ namespace CoreTest.ViewModels
         }
 
         #endregion
+
+        #region Статус
+
+        private string _Status = "Complete!";
+
+        /// <summary>Status of window</summary>
+        public string Status 
+        { 
+            get => _Status;
+            set => Set(ref _Status, value); 
+        }
+
+        #endregion
     }
 }
