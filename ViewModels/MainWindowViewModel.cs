@@ -1,7 +1,10 @@
-﻿using CoreTest.ViewModels.Base;
+﻿using CoreTest.Infrastructure.Commands;
+using CoreTest.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CoreTest.ViewModels
 {
@@ -38,5 +41,32 @@ namespace CoreTest.ViewModels
         }
 
         #endregion
+
+        #region Commands
+
+
+        #region CloseApplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanCloseApplicationCommandExecute(object p) => true;
+
+        #endregion
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            #region Commands
+
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+
+            #endregion
+
+        }
     }
 }
